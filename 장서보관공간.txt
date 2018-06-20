@@ -1,0 +1,18 @@
+import matplotlib.pyplot as plt
+
+plt.figure(figsize = (5,3), dpi = 300)
+import random
+import csv
+f = open('전국도서관표준데이터.csv')
+x = []
+y = []
+data = csv.reader(f)
+next(data)
+for row in data : 
+    if row[21] != '' and row[11] != '' :
+        x.append(float(row[21]))
+        y.append(float(row[11])*1.5)
+
+plt.scatter(x,y)
+plt.scatter(x, y, s  =0.01, c = ['r'], )
+plt.show()
